@@ -29,7 +29,16 @@ const reducer = (state = initialState, action) => {
             ...state,
             { radius, color }
         ]
+    } else if (type === "REMOVE_CIRCLE") {
+
+        console.log("will remove circle with id " + id);
+        let newState = [...state];
+        let arrayIndex = id;
+        newState.splice(arrayIndex,1)
+
+        return newState;
     }
+
 
     return state;
 }

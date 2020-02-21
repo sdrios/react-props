@@ -1,8 +1,18 @@
 // Render the name tags using React!
 const App = (props) => {
     let { nameTags } = props;
+    console.log(props);
+    console.log(nameTags);
+    let nameStyle={
+        border:"1px solid black",
+        margin: "5px",
+    }
     return (
-        <span>name tags</span>
+        nameTags.map((nameTag) => {
+            console.log(nameTag);
+           return <div style={nameStyle}>{nameTag}</div>
+        })
+
     )
 }
 

@@ -2,6 +2,8 @@ const { createStore } = Redux;
 const { subscribe, dispatch, getState } = createStore(reducer);
 
 subscribe(() => {
+    console.log("ENTERING SUBSCRIBER FUNCTION.......")
+    console.log("calling ReactDom to render the page")
     ReactDOM.render(<App rectangle={getState()} />, document.getElementById('rectangleContainer'))
 });
 
@@ -11,10 +13,12 @@ dispatch({type: null}); // Here we're making a call to dispatch() - this trigger
 var dimensions = ['height', 'width'];
 dimensions.forEach(dimension => {
     document.getElementById(dimension).addEventListener('click', e => {
+        
         dispatch({
             type: 'SIZE',
             dimension
         })
+        console.log("BUTTON CLICKED.. dispatching REDUX")
     })
 })
 
